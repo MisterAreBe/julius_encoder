@@ -27,4 +27,8 @@ class TestEncoder < Minitest::Test
         assert_equal(String, decoder("").class)
     end
 
+    def test_decoder_message
+        assert_equal("Hello there!", decoder("Mjqqt ymjwj!"))
+    end
+
 end
