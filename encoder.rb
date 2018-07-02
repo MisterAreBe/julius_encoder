@@ -17,3 +17,7 @@ def encoder(message)
     secret = mess_arr.join("")
     secret
 end
+
+def decoder(encoded_message)
+    ""
+end
