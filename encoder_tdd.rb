@@ -7,4 +7,8 @@ class TestEncoder < Minitest::Test
         assert_equal(1, 1)
     end
 
+    def test_for_hash_class
+        assert_equal(Hash, encoder().class)
+    end
+
 end
