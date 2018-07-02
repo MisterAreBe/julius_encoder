@@ -18,4 +18,9 @@ class TestEncoder < Minitest::Test
     def test_for_encoded_large_message
         assert_equal("it sty jslflj", encoder("do not engage"))
     end
+
+    def test_for_upercase_gets_encoded
+        assert_equal("Mjqqt!", encoder("Hello!"))
+    end
+    
 end
