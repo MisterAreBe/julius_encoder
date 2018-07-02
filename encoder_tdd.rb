@@ -22,5 +22,9 @@ class TestEncoder < Minitest::Test
     def test_for_upercase_gets_encoded
         assert_equal("Mjqqt!", encoder("Hello!"))
     end
-    
+
+    def test_for_decoder_class_string
+        assert_equal(String, decoder("").class)
+    end
+
 end

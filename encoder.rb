@@ -14,5 +14,6 @@ def encoder(message)
             mess_arr[index] = holder
         end
     end
-    mess_arr.join("")
+    secret = mess_arr.join("")
+    secret
 end
