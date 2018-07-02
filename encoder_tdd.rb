@@ -7,11 +7,15 @@ class TestEncoder < Minitest::Test
         assert_equal(1, 1)
     end
 
-    # def test_for_hash_class
-    #     assert_equal(Hash, encoder().class)
-    # end
+    def test_for_string_class
+        assert_equal(String, encoder("").class)
+    end
 
     def test_for_encoded_message
         assert_equal("mjqqt!", encoder("hello!"))
+    end
+
+    def test_for_encoded_large_message
+        assert_equal("it sty jslflj", encoder("do not engage"))
     end
 end
