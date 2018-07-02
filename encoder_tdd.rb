@@ -8,19 +8,19 @@ class TestEncoder < Minitest::Test
     end
 
     def test_for_string_class
-        assert_equal(String, encoder("").class)
+        assert_equal(String, encoder("", "").class)
     end
 
     def test_for_encoded_message
-        assert_equal("mjqqt!", encoder("hello!"))
+        assert_equal("mjqqt!", encoder("hello!", "encode"))
     end
 
     def test_for_encoded_large_message
-        assert_equal("it sty jslflj", encoder("do not engage"))
+        assert_equal("it sty jslflj", encoder("do not engage", "encode"))
     end
 
     def test_for_upercase_gets_encoded
-        assert_equal("Mjqqt!", encoder("Hello!"))
+        assert_equal("Mjqqt!", encoder("Hello!", "encode"))
     end
 
     def test_for_decoder_class_string
@@ -31,4 +31,7 @@ class TestEncoder < Minitest::Test
         assert_equal("Hello there!", decoder("Mjqqt ymjwj!"))
     end
 
+    def test_encoder_function_for_ability_to_decode
+        assert_equal("Hello there!", encoder("Mjqqt ymjwj!", "decode"))
+    end
 end
