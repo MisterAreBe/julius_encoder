@@ -25,7 +25,6 @@ def encoder(message, code)
         end
     end
     secret = mess_arr.join("")
-    p 
     secret
 end
 
