@@ -2,7 +2,9 @@ require "minitest/autorun"
 require_relative "encoder.rb"
 
 class TestEncoder < Minitest::Test
-    
+    shift = Time.now
+    decode = shift.day
+    p decode
     def test_assert_that_1_equals_1
         assert_equal(1, 1)
     end
@@ -10,6 +12,7 @@ class TestEncoder < Minitest::Test
     def test_for_string_class
         shift = Time.now
         assert_equal(String, encoder("", "", shift.day).class)
+        p shift.day
     end
 
     def test_for_encoded_message
