@@ -1,5 +1,12 @@
 def encoder(message, code)
-    alpha_encoder = {"a" => "f", "b" => "g", "c" => "h", "d" => "i", "e" => "j", "f" => "k", "g" => "l", "h" => "m", "i" => "n", "j" => "o", "k" => "p", "l" => "q", "m" => "r", "n" => "s", "o" => "t", "p" => "u", "q" => "v", "r" => "w", "s" => "x", "t" => "y", "u" => "z", "v" => "a", "w" => "b", "x" => "c", "y" => "d", "z" => "e"}
+    t = Time.now
+    alphabit = [*"a".."z"]
+    alphabit.rotate!(t.day)
+    alpha_encoder = {"a" => "", "b" => "", "c" => "", "d" => "", "e" => "", "f" => "", "g" => "", "h" => "", "i" => "", "j" => "", "k" => "", "l" => "", "m" => "", "n" => "", "o" => "", "p" => "", "q" => "", "r" => "", "s" => "", "t" => "", "u" => "", "v" => "", "w" => "", "x" => "", "y" => "", "z" => ""}
+    alpha_encoder.each_with_index do |v, i|
+        v[1] = alphabit[i]
+        alpha_encoder.store(v[0], v[1])
+    end
     unless code == "encode"
         alpha_encoder = alpha_encoder.invert
     end
@@ -18,6 +25,7 @@ def encoder(message, code)
         end
     end
     secret = mess_arr.join("")
+    p 
     secret
 end
 
