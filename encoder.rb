@@ -1,13 +1,12 @@
-def encoder(message, code)
-    t = Time.now
+def encoder(message, code, day)
     alphabit = [*"a".."z"]
-    alphabit.rotate!(t.day)
+    alphabit.rotate!(day)
     alpha_encoder = {"a" => "", "b" => "", "c" => "", "d" => "", "e" => "", "f" => "", "g" => "", "h" => "", "i" => "", "j" => "", "k" => "", "l" => "", "m" => "", "n" => "", "o" => "", "p" => "", "q" => "", "r" => "", "s" => "", "t" => "", "u" => "", "v" => "", "w" => "", "x" => "", "y" => "", "z" => ""}
     alpha_encoder.each_with_index do |v, i|
         v[1] = alphabit[i]
         alpha_encoder.store(v[0], v[1])
     end
-    unless code == "encode"
+    if code == "decode"
         alpha_encoder = alpha_encoder.invert
     end
     mess_arr = message.split("")
